@@ -57,6 +57,7 @@ const PinTitle=`<div class="sticky top-0 z-20 bg-token-sidebar-surface-primary">
 
 const Sideobserver = new MutationObserver((mutationsList, obs) => {
     const sidebar = document.querySelector('div[class^="group/sidebar"]');
+    console.log("ll");
     if (sidebar) {
         console.log("Sidebar detected:", sidebar);
 
@@ -100,7 +101,7 @@ if (sidebarParent) {
     Sideobserver.observe(sidebarParent, { childList: true, subtree: true });
 } else {
     Sideobserver.observe(document.body, { childList: true, subtree: true });
-}
+};
 
 
 
@@ -185,7 +186,18 @@ function closeMenu(menu) {
 }
 
 const observer = new MutationObserver((mutationsList, observer) => {
+   
     // for Fetching Pinned Chats...
+    const sidebarCloseButton=document.querySelector('[aria-label="Open sidebar"]');
+    sidebarCloseButton.addEventListener("click",()=>{
+        console.log("dd clicked");
+        const sidebarParent = document.querySelector('div[class^="group/sidebar"]'); // Adjust this
+        if (sidebarParent) {
+            console.log('kkk');
+            Sideobserver.observe(sidebarParent, { childList: true, subtree: true });
+        } 
+    });
+
 
     for (const mutation of mutationsList) {
         if (mutation.type === "childList") {
