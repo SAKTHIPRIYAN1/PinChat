@@ -189,7 +189,7 @@ const observer = new MutationObserver((mutationsList, observer) => {
    
     // for Fetching Pinned Chats...
     const sidebarCloseButton=document.querySelector('[aria-label="Open sidebar"]');
-    sidebarCloseButton.addEventListener("click",()=>{
+    sidebarCloseButton?.addEventListener("click",()=>{
         console.log("dd clicked");
         const sidebarParent = document.querySelector('div[class^="group/sidebar"]'); // Adjust this
         if (sidebarParent) {

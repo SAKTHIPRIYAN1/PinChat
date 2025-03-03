@@ -29,5 +29,10 @@
       ],
       "run_at": "document_end"
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "your-extension@example.com"
+    }
+  }
 }
